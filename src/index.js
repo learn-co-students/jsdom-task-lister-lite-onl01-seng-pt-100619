@@ -1,18 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
   // create a function for the eventListener, where the new li element is created for the tasks
+  // assign input to variable finding the input tag and accesing the text through  innerText, and set this text to the new li element for the list
 
-  document.addEventListener("submit", function(e)){
-    let a = document.getElementById("new-task-description");
+  function addListItem(event){
+    event.preventDefault()
+    
+    let a = document.getElementById("new-task-description"); // get text from form
     let text = a.innerText
-
-    function addListItem(){
-      let list = document.createElement("li")
-      let tasks = document.getElementById("tasks")
-      list.innerText = text
-  
-    }
+    let list = document.createElement("li")
+    list.innerText = text
+    
   }
+  const form = document.getElementById('form');
+  const tasks = document.getElementById("tasks");
+
+  form.addEventListener("submit", addListItem)
 
 });
 
