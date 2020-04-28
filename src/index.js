@@ -1,11 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
-  function addListItem(){
-    let tasks = document.getElementById("tasks").createElement("li")
-    
-  }
-  document.addEventListener("submit", function(e)){
+  // create a function for the eventListener, where the new li element is created for the tasks
 
+  document.addEventListener("submit", function(e)){
+    let a = document.getElementById("new-task-description");
+    let text = a.innerText
+
+    function addListItem(){
+      let list = document.createElement("li")
+      let tasks = document.getElementById("tasks")
+      list.innerText = text
+  
+    }
   }
 
 });
