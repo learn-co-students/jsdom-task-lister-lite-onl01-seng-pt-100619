@@ -2,20 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // your code here
   // create a function for the eventListener, where the new li element is created for the tasks
   // assign input to variable finding the input tag and accesing the text through  innerText, and set this text to the new li element for the list
+  // add an event listener to the form element directly, and use event instance to preventDefeult action and then add logic
 
-  function addListItem(event){
+  const form = document.getElementById('create-task-form');
+
+  form.addEventListener("submit", function(event) {
+    
+    let text = document.getElementById("new-task-description").value; // get text from form
+    // let list = document.createElement("li")
+    // list.innerHTML = text
+    
+    document.getElementById("tasks").innerHTML += `<li> ${text}</li>` ;
     event.preventDefault()
-    
-    let a = document.getElementById("new-task-description"); // get text from form
-    let text = a.innerText
-    let list = document.createElement("li")
-    list.innerText = text
-    
-  }
-  const form = document.getElementById('form');
-  const tasks = document.getElementById("tasks");
 
-  form.addEventListener("submit", addListItem)
+     // add list to tasks
+    // tasks.innerText = list
+  });
 
 });
 
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //  greeting.innerHTML = string
 //  let text = document.createTextNode(string)
 //  greeting.appendChild(text) // add createTextNode to make a text that can be added to our element and appendChild this text to our element
-}
+
 
 // let newHeader = document.createElement("h1");
 
