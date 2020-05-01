@@ -18,7 +18,6 @@ function createNewTask(event) {
   // add input to HTML element
   newTask.innerText = newTaskDescription.value;
 
-
   //add li to DOM:
   //access where we want to add it
   const appendNewTask = document.getElementById("tasks")
