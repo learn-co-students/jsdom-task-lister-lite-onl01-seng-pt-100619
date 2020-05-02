@@ -1,51 +1,35 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const taskForm = document.getElementById('create-task-form');
-//   const taskDescription = document.getElementById('new-task-description');
-//   const taskList = document.getElementById('tasks')
-
-//   taskForm.addEventListener("submit", taskCreation(event));
-  
-
-//   function taskCreation(event){
-//     event.preventDefault();
-//     let newTask = document.createElement("li");
-//     newTask.innerText = taskDescription.value; 
-    
-    
-
-//     const appendNewTask = event => {
-//       document.getElementById("tasks").appendChild(event);
-//     }
-    
-//     appendNewTask(newTask)
-
-    
-//   }
-  
-// });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const newTaskForm = document.getElementById("create-task-form");
-  // const newTaskDescription = document.getElementById("new-task-description");
-  // const newTaskPriority = document.getElementById("new-task-priority");
-  const newTaskUl = document.getElementById("tasks");
-
   newTaskForm.addEventListener("submit", createNewTask);
+  const taskItemDelete = document.getElementById('tasks')
 });
 
-const createNewTask = event => {
-  event.preventDefault();
-  //stop form from trying to submit
-  const newTaskDescription = document.getElementById("new-task-description");
-  const newTask = document.createElement("li");
-  newTask.innerText = newTaskDescription.value;
+  const createNewTask = event => {
+    event.preventDefault();
+    //stop form from trying to submit
+    const newTaskDescription = document.getElementById("new-task-description");
+    const newTask = document.createElement("li");
+    const removeButton = document.createElement("button")
+    removeButton.innerText = "X"
+    removeButton.addEventListener('click', function(){
+      newTask.remove();
+    }
+    )
 
-  appendNewTask(newTask);
-  event.target.reset();
-};
+    // removeButton.innerText = newTaskDescription.value;
+    newTask.innerText = newTaskDescription.value;
+    newTask.appendChild(removeButton)
 
-const appendNewTask = task => {
-  document.getElementById("tasks").appendChild(task);
-};
-debugger
+    appendNewTask(newTask);
+    event.target.reset();
+    // appendNewTask(newTask);
+    // event.target.reset();
+  };
+
+  let appendNewTask = function(task){
+    document.getElementById('tasks').appendChild(task);
+    event.target.reset();
+  }
+
+
