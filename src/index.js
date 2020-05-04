@@ -6,16 +6,42 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
   function createNewTask(){
+    // creating task:
     console.log("task creation clicked")
+    // reset values inside the textbox
     event.preventDefault();
-    //stop form from trying to submit
     const newTaskDescription = document.getElementById("new-task-description");
     const taskList = document.getElementById('tasks')
     const newTask = document.createElement("li");
     newTask.innerText = newTaskDescription.value;
     taskList.appendChild(newTask);
+    
+    // setting priority for each task:
+    const addPriority = document.createElement('select');
+    addPriority.setAttribute('class','priorities');
+    const option1 = document.createElement('option');
+    option1.setAttribute('value','low');
+    option1.setAttribute('id','low_Priority');
+    option1.innerText = "low";
+    const option2 = document.createElement('option');
+    option2.setAttribute('value','medium');
+    option2.setAttribute('id','medium_priority');
+    option2.innerText = "medium";
+    const option3 = document.createElement('option');
+    option3.setAttribute('value','High');
+    option3.setAttribute('id','high_priority');
+    option3.innerText = 'High';
 
-    // rmove button: used to append on each new task created and has a listener that use remove mehtod to delete that task.
+    addPriority.appendChild(option1);
+    addPriority.appendChild(option2);
+    addPriority.appendChild(option3);
+    newTask.appendChild(addPriority);
+    
+    debugger
+
+    
+
+    // deleteing each task
     const removeButton = document.createElement("button")
     removeButton.innerText = "X"
     newTask.appendChild(removeButton);
@@ -23,39 +49,10 @@ document.addEventListener("DOMContentLoaded", function(){
       newTask.remove();
     });
 
-    // const addPriority = document.createElement("select");
-    // addPriority.setAttribute("class","priority");
-    // addPriority.setAttribute("id","priority");
-
-    // const newOption = document.createElement('option')
-    // const lowPriority = document.createTextNode('low');
-    // const mediumPriority = document.createTextNode('medium');
-    // const highPriority = document.createTextNode('high');
-    
-
   
-    
-    // addPriority.appendChild(newOption);
-    
-    
-    
-  
-
-    // removeButton.innerText = newTaskDescription.value;
-   
-    // newTask.appendChild(removeButton)
-    
-    
-
-    
-    // appendNewTask(newTask);
-    // event.target.reset();
   }
 
-// callback function for creating new task
-//   let appendNewTask = function(task){
-//     document.getElementById('tasks').appendChild(task);
-//     event.target.reset();
+
 });
 
   
