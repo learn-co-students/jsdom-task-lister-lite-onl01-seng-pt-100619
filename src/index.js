@@ -27,3 +27,5 @@ function createNewTask(event) {
   event.target.reset();
 
 };
+
+// add delete button!!
